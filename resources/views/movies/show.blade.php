@@ -5,8 +5,14 @@
 @section('content') {{-- ono sto je definisano u @yield('content') u master.blade.php ce biti ovde --}}
     <div>
         <h3>
-            {{ $movie->title }}
+            {{ $movie->title }} ({{ $movie->year }})
         </h3>
+        <p>
+            Genre: {{ $movie->genre }}
+        </p>
+        <p>
+            Director: {{ $movie->director }}
+        </p>
         <p>
             {{ $movie->storyline }}
         </p>
