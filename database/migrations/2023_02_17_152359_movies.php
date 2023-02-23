@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('genre');
             $table->string('director');
-            $table->char('year');
+            $table->integer('year');
             $table->text('storyline');
         });
     }
@@ -33,5 +33,3 @@ return new class extends Migration
         Schema::dropIfExists('movies');
     }
 };
-
-
