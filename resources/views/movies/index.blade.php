@@ -4,30 +4,41 @@
 
 @section('content') {{-- ono sto je definisano u @yield('content') u master.blade.php ce biti ovde --}}
 
-    <ul>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         @if ($movies) {{-- // ako ima postova ispisi uradi dole --}}
             @foreach ($movies as $movie)
-                <!-- izvlacenje svih postova iz baze posts , sto znaci da bi ovde trebali da se ovde na mesto $posts upisuje naziv koji smo definisali u web.php  'postsX' -->
-                <li>
-                    <!-- https://127.0.0.1:8000/posts/{id} , ovde dole gde je definisano 'id' => $post->id prolazimo kroz asocijativni niz u bazi i pitamo ima li ovde neki 'id' da se zameni, ako ima onda umesto {id} upisujemo tu vrednost sto smo pronasli u 'id' => $post->id -->
-                    <a href="{{ route('movie.show', ['id' => $movie->id]) }}">
-                        <h5>{{ $movie->title }} ({{ $movie->year }}) </h5>
-                    </a>
-                    <p>{{ $movie->storyline }}</p>
-                </li>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                            preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <rect width="100%" height="100%" fill="#55595c" />
+                            <text class="d-flex align-items-center" x="50%" y="50%" fill="#eceeef"
+                                dy=".3em"><a href="{{ route('movie.show', ['id' => $movie->id]) }}">
+                                    {{ $movie->title }} ({{ $movie->year }})
+                                </a></text>
+                        </svg>
+                        <div class="card-body">
+                            <p class="card-text">{{ $movie->storyline }}</p>
+                            <div class="align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             @endforeach
         @else
             nema {{-- ako nema postova ispisi poruku --}}
         @endif
+    </div>
 
-        <!-- $route = route('single-post')   // route-helper ovde bi tip ove vrednosti bio string, zato sto route helper vraca string, koja bi bila definisana funkcijom
-                function route($routeName) {
-                    foreeach (routes as route) {
-                        if (route->name === $routeName) {
-                            return route->path;
-                        }
-                    } prolazi kroz niz route koja se zove single-post
-                }
-                -->
-    </ul>
 @endsection
+
+
+{{-- // poseban blade MovieList --}}
+
+
+{{-- @foreach ($movies as $movie) --}}

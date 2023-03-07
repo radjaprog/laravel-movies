@@ -16,4 +16,4 @@ use App\Http\Controllers\MoviesController;
 */
 
 Route::get('/', [MoviesController::class, 'index']);
-Route::get('/movie/{id}', [MoviesController::class, 'show'])->name("movie.show");
+Route::get('/movies/{id}', [MoviesController::class, 'show'])->name("movie.show");
