@@ -2,23 +2,54 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use App\Http\Requests\CreatMovieRequest;
+use Illuminate\Support\Facades\Log;
 
 
 class MoviesController extends Controller
 {
     public function index()
-    {       // naziv metode index koja prikazuje sve postove
+    {
         $movies = Movie::all();
 
-        return view('movies.index', compact('movies')); // znaci ovde moram da u view preimenujem blade allposts.blade.php u index.blade.php da bi 'index' radio, i ubacujem posts.index zato sto smo napravili novi folder posts gde smo ubacili index.blade.php
+        return view('movies.index', compact('movies'));
     }
 
     public function show($id)
     {
-        $movie = Movie::findOrFail($id);
+        $movie = Movie::with('genres')->findOrFail($id);
 
         return view('movies.show', compact('movie'));
+    }
+
+    public function create()
+    {
+        $genre = Genre::all();
+
+        return view('movies.create', ['genre' => $genre]);
+    }
+
+    public function store(CreatMovieRequest $request)
+    {
+        // dd($request->all());
+        $validated = $request->validated();
+
+        $movie = Movie::create([
+            'title' => request('title'),
+            'director' => request('director'),
+            'year' => request('year'),
+            'storyline' => request('storyline')
+        ]);
+
+        $genre_ids = request('genre_ids');
+
+        foreach ($genre_ids as $genre_id) {
+            $movie->genres()->attach($genre_id);
+        }
+
+        return redirect("/");
     }
 }

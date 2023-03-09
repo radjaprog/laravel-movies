@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Movie;
 use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\GenreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,8 @@ use App\Http\Controllers\MoviesController;
 */
 
 Route::get('/', [MoviesController::class, 'index']);
-Route::get('/movies/{id}', [MoviesController::class, 'show'])->name("movie.show");
+
+Route::get('/movies/create', [MoviesController::class, 'create'])->name('createMovies');
+Route::post('/movies', [MoviesController::class, 'store']);
+Route::get('/movies/{id}', [MoviesController::class, 'show'])->name('singleMovie');
+//Route::get('/genres/{id}', [GenreController::class, 'show'])->name('allGenres');
