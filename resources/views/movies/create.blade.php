@@ -11,20 +11,36 @@
             <input type="text" name="title" class="form-control" />
         </div>
 
+        @error('title')
+            @include('partials.error')
+        @enderror
+
         <div class="mb-3">
             <label class="form-label">Director</label>
             <textarea type="text" name="director" class="form-control"></textarea>
         </div>
+
+        @error('director')
+            @include('partials.error')
+        @enderror
 
         <div class="mb-3">
             <label class="form-label">Year</label>
             <textarea type="text" name="year" class="form-control"></textarea>
         </div>
 
+        @error('year')
+            @include('partials.error')
+        @enderror
+
         <div class="mb-3">
             <label class="form-label">Storyline</label>
             <textarea type="text" name="storyline" class="form-control"></textarea>
         </div>
+
+        @error('storyline')
+            @include('partials.error')
+        @enderror
 
         <div>
             @foreach ($genre as $genres)

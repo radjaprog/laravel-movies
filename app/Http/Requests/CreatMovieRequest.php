@@ -26,8 +26,8 @@ class CreatMovieRequest extends FormRequest
         return [
             'title' => 'required|min:4',
             'director' => 'required|min:5|max:50',
-            'year' => 'required|min:4',
-            'storyline' => 'required|min:10|max:250',
+            'year' => 'required|integer|digits:4|min:1900|max:2023',
+            'storyline' => 'required|min:3|max:1000',
             'genre_ids' => 'required|array',
             'genre_ids.*' => 'integer|exists:genres,id'
         ];
