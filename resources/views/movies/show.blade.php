@@ -30,7 +30,7 @@
                             <ul>
                                 @foreach ($movie->comments as $comment)
                                     <li>
-                                        {{ $comment->content }}
+                                        {{ $comment->content }} ({{ $comment->created_at }})
                                     </li>
                                 @endforeach
                             </ul>
