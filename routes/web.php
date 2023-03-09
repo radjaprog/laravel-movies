@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Movie;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\GenreController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,8 @@ Route::get('/movies/create', [MoviesController::class, 'create'])->name('createM
 Route::post('/movies', [MoviesController::class, 'store']);
 Route::get('/movies/{id}', [MoviesController::class, 'show'])->name('singleMovie');
 //Route::get('/genres/{id}', [GenreController::class, 'show'])->name('allGenres');
+
+Route::get('/comments', [CommentController::class, 'index'])->name('comments');
 
 Auth::routes();
 

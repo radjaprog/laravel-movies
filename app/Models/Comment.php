@@ -13,4 +13,9 @@ class Comment extends Model
         'movie_id',
         'content'
     ];
+
+    public function movie()
+    {
+        return $this->belongsTo(Movie::class);
+    }
 }

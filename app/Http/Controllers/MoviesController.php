@@ -20,7 +20,7 @@ class MoviesController extends Controller
 
     public function show($id)
     {
-        $movie = Movie::with('genres')->findOrFail($id);
+        $movie = Movie::with('genres', 'comments')->findOrFail($id);
 
         return view('movies.show', compact('movie'));
     }

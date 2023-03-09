@@ -16,13 +16,25 @@
                         <p>
                             {{ $movie->storyline }}
                         </p>
-                        <br>
-                        @foreach ($movie->genres as $genre)
-                            <div>
-                                {{ $genre->name }}
-                            </div>
-                        @endforeach
-                        <br>
+                        <div>
+                            @foreach ($movie->genres as $genre)
+                                <div>
+                                    {{ $genre->name }}
+                                </div>
+                            @endforeach
+                        </div>
+                        <div>
+                            <h4>
+                                Comments:
+                            </h4>
+                            <ul>
+                                @foreach ($movie->comments as $comment)
+                                    <li>
+                                        {{ $comment->content }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                         <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                         <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                     </div>
