@@ -22,3 +22,11 @@ Route::get('/movies/create', [MoviesController::class, 'create'])->name('createM
 Route::post('/movies', [MoviesController::class, 'store']);
 Route::get('/movies/{id}', [MoviesController::class, 'show'])->name('singleMovie');
 //Route::get('/genres/{id}', [GenreController::class, 'show'])->name('allGenres');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
