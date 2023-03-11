@@ -1,11 +1,13 @@
 <?php
 
+// use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Movie;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\GenreController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\LoginController;
+// use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,13 +26,14 @@ Route::get('/movies/create', [MoviesController::class, 'create'])->name('createM
 Route::post('/movies', [MoviesController::class, 'store']);
 Route::get('/movies/{id}', [MoviesController::class, 'show'])->name('singleMovie');
 //Route::get('/genres/{id}', [GenreController::class, 'show'])->name('allGenres');
+Route::get('/login', [LoginController::class, 'create'])->name('login');
 
-Route::get('/comments', [CommentController::class, 'index'])->name('comments');
+//Route::get('/comments', [CommentController::class, 'index'])->name('comments');
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -16,11 +16,10 @@
                             <li>
                                 <p class="blog-header-logo text-dark">{{ auth()->user()->name }}</p>
                             </li>
-                            <li><a href="/login" class="text-white">Logout</a></li>
+                            <li><a href="/logout" class="text-white">Logout</a></li>
                         @else
                             <li><a href="/login" class="text-white">Login</a></li>
                             <li><a href="/register" class="text-white">Sign up</a></li>
-                            <li><a href="#" class="text-white">Email me</a></li>
                         @endif
                     </ul>
                 </div>
