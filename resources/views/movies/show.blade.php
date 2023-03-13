@@ -19,7 +19,9 @@
                     <div>
                         @foreach ($movie->genres as $genre)
                             <div>
-                                {{ $genre->name }}
+                                <a href="{{ route('singleGenre', ['id' => $genre->id]) }}">
+                                    {{ $genre->name }}
+                                </a>
                             </div>
                         @endforeach
                     </div>
