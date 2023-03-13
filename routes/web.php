@@ -7,7 +7,7 @@ use App\Models\Movie;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\LoginController;
-// use Illuminate\Support\Facades\Auth;
+//use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +25,12 @@ Route::get('/', [MoviesController::class, 'index']);
 Route::get('/movies/create', [MoviesController::class, 'create'])->name('createMovies');
 Route::post('/movies', [MoviesController::class, 'store']);
 Route::get('/movies/{id}', [MoviesController::class, 'show'])->name('singleMovie');
-//Route::get('/genres/{id}', [GenreController::class, 'show'])->name('allGenres');
-Route::get('/login', [LoginController::class, 'create'])->name('login');
+Route::get('/genres/{id}', [GenreController::class, 'show'])->name('allGenres');
+//Route::get('/login', [LoginController::class, 'create'])->name('login');
 
-//Route::get('/comments', [CommentController::class, 'index'])->name('comments');
-
+Route::get('/comments', [CommentController::class, 'index'])->name('comments');
+Route::get('/movies/createComments', [CommentController::class, 'create'])->name('createComments');
+Route::post('/movies/{id}/comments', [CommentController::class, 'store']);
 //Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -36,7 +36,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <a href="/comments/createComment" class="btn btn-sm btn-outline-secondary">Add Comment</a>
                     <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                     {{-- </div> --}}
                 </div>
