@@ -36,7 +36,8 @@
                             @endforeach
                         </ul>
                     </div>
-                    <a href="/comments/createComment" class="btn btn-sm btn-outline-secondary">Add Comment</a>
+                    <a href="{{ route('createComments', ['id' => $movie->id]) }}" class="btn btn-sm btn-outline-secondary">Add
+                        Comment</a>
                     <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                     {{-- </div> --}}
                 </div>

@@ -3,7 +3,7 @@
 @section('title', 'Add new comment')
 
 @section('content')
-    <form action='/movies/{{ $movie->id }}/comments' method='POST'>
+    <form action='comments' method='POST'>
         @csrf
         <label for="content">Add content</label>
         <textarea name="content" id="content" cols="30" rows="10"></textarea>

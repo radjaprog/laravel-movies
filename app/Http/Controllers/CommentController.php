@@ -32,6 +32,7 @@ class CommentController extends Controller
             'movie_id' => $id
         ]));
 
-        return redirect()->back();
+        //return redirect()->route('singleMovie', ['id' => ]);
+        return redirect("/movies/{$movie->id}");
     }
 }

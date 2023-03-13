@@ -28,4 +28,3 @@ class CommentRequest extends FormRequest
         ];
     }
 }
-}
