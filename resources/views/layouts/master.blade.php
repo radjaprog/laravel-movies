@@ -32,30 +32,31 @@
 
 <body>
     @include('partials.header')
+    <div class="d-flex flex-row">
+        @include('partials.sidebar')
+        <main>
 
-    <main>
+            <section class="py-5 text-center container">
+                <div class="row py-lg-5">
+                    <div class="col-lg-6 col-md-8 mx-auto">
+                        <h1 class="fw-light">Movies</h1>
+                        <p class="lead text-muted">test</p>
+                        <p>
+                            <a href="/" class="btn btn-primary my-2">All movies</a>
+                            <a href="/movies/create" class="btn btn-secondary my-2">Add movie</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-        <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">Movies</h1>
-                    <p class="lead text-muted">test</p>
-                    <p>
-                        <a href="/" class="btn btn-primary my-2">All movies</a>
-                        <a href="/movies/create" class="btn btn-secondary my-2">Add movie</a>
-                    </p>
+            <div class="album py-5 bg-light">
+                <div class="container">
+                    @yield('content')
                 </div>
             </div>
-        </section>
 
-        <div class="album py-5 bg-light">
-            <div class="container">
-                @yield('content')
-            </div>
-        </div>
-
-    </main>
-
+        </main>
+    </div>
     <footer class="text-muted py-5">
         <div class="container">
             <p class="float-end mb-1">

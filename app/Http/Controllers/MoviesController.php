@@ -18,10 +18,10 @@ class MoviesController extends Controller
         return view('movies.index', compact('movies'));
     }
 
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $movie = Movie::with('genres', 'comments')->findOrFail($id);
-
+        //$movieName = $request->query('movie');
         return view('movies.show', compact('movie'));
     }
 
